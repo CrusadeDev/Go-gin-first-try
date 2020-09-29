@@ -1,17 +1,16 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"LearnGoGin/app/Route"
+	"LearnGoGin/app/Util"
 )
 
-var router *gin.Engine
-
 func main() {
-	router = gin.Default()
+	router := Util.InitRouter()
 
-	router.LoadHTMLGlob("template/*")
+	Route.InitRoutes()
 
-	initializeRoutes()
+	Util.ConnectToDatabase()
 
 	router.Run()
 }
